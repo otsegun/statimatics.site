@@ -1,0 +1,43 @@
+baseurl = "/"
+relativeurls = true
+languageCode = "en-us"
+title = "Statimatics-Adventures in Data Science"
+theme = "hugo-lithium-theme"
+googleAnalytics = ""
+disqusShortname = ""
+ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
+
+[permalinks]
+    post = "/:year/:month/:day/:slug/"
+
+[[menu.main]]
+    name = "About"
+    url = "/about/"
+[[menu.main]]
+    name = "Vitae"
+    url = "/vitae/"  
+[[menu.main]]
+    name = "Facebook"
+    url = "https://facebook.com/statimatics"
+[[menu.main]]
+    name = "Twitter"
+    url = "https://twitter.com/statimatics"
+
+[params]
+    description = "A journal of my adventures in data science"
+
+    # options for highlight.js (version, additional languages, and theme)
+    highlightjsVersion = "9.11.0"
+    highlightjsCDN = "//cdn.bootcss.com"
+    highlightjsLang = ["r", "yaml"]
+    highlightjsTheme = "github"
+
+    MathJaxCDN = "//cdn.bootcss.com"
+    MathJaxVersion = "2.7.1"
+
+    [params.logo]
+    url = "logo.png"
+    width = 50
+    height = 50
+    alt = "Logo"
+
