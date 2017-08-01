@@ -3,8 +3,8 @@ relativeurls = true
 languageCode = "en-us"
 title = "Statimatics-Adventures in Data Science"
 theme = "hugo-lithium-theme"
-googleAnalytics = ""
-disqusShortname = ""
+googleAnalytics = "UA-103837477-1"
+disqusShortname = "statimatics"
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 
 [permalinks]
