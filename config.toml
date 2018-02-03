@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "http://www.statimatics.com"
 relativeurls = true
 languageCode = "en-us"
 title = "Statimatics-Adventures in Data Science"
