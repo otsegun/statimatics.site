@@ -1,0 +1,16 @@
+---
+title: 2018, The Year I (Finally) Started Blogging About  Data Science
+author: Oluwasegun Ojo
+date: '2018-02-03'
+slug: 2018-i-finally-started-blogging-about-r
+draft: true
+categories:
+  - R
+  - Data Science
+  - Thoughts
+tags:
+  - R
+  - Blogging
+  - Portfolio
+---
+

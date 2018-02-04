@@ -1,6 +1,6 @@
 ---
 title: "About"
-date: "2017-07-30T14:02:51-07:00"
+date: '2017-07-30T14:02:51-07:00'
 ---
 
 I am Oluwasegun, a statistician and an aspiring data scientist. I earned my bachelor's degree in statistics from the Federal University of Technology, Akure and my master's degree in  mathematics from the African Institute for Mathematical Sciences (AIMS), Cameroon. My master's degree thesis was on analysis of satellite radiation data. I am a big fan of R and it's my favourite for making sense of data. I have been doing data analysis in R for about 3 years now.  I constantly use packages like ggplot2, plotly, (for data visualizations), forecast, ts, (for time series analysis), lme4, (for linear mixed effect modelling), etc. I have created  interactive web-based data applications using the shiny framework in R and I regularly create dynamic reports using Rmarkdown. I find myself using python sometimes and I am conversant with popular libraries like numpy, scipy, pandas and scikit-learn. 
