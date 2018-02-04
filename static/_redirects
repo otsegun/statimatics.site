@@ -1,0 +1,6 @@
+http://statimatics.rbind.io/*    https://statimatics.rbind.io/:splat  301!
+http://statimatics.netlify.com/* https://statimatics.rbind.io/:splat  301!
+http://statimatics.com/*         https://statimatics.rbind.io/:splat  301!
+http://www.statimatics.com/*     https://statimatics.rbind.io/:splat  301!
+https://statimatics.com/*        https://statimatics.rbind.io/:splat  301!
+
