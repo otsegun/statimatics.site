@@ -3,7 +3,6 @@ title: 2018, The Year I (Finally) Started Blogging About  Data Science
 author: Oluwasegun Ojo
 date: '2018-02-03'
 slug: 2018-i-finally-started-blogging-about-r
-draft: true
 categories:
   - R
   - Data Science
@@ -13,4 +12,35 @@ tags:
   - Blogging
   - Portfolio
 ---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+
+Phewwww! After a lot of delay and procastination, I finally get to write my first post on this blog, in 2018. I think it's only appropriate I start with a quote from Yihui Xie's [blogdown](https://bookdown.org/yihui/blogdown/) book:
+
+>"I web, therefore I am a spiderman"
+
+This quote sums up my motive for setting up this blog. I want to do and write about data science so that I can be a data scientist. Taking one more cue from the preface of Yihui's blogdown book, 
+
+>“If you don’t have a website nowadays, you don’t exist.”
+
+The benefit of blogging, especially for aspiring data scientists like me cannot be overemphasized. David Robinson's [advice](http://varianceexplained.org/r/start-blog/) to aspiring data scientist on his blog, varianceexplained.org, clearly outlines this and I must admit this post was a major in my decision to finally start blogging about R and data science. [John Mackintosh's](https://twitter.com/HighlandDataSci) post about [blogging and social media for introvert](https://www.johnmackintosh.com/2017-12-30-time-to-shine/) was also quite helpful in getting me out of my hiding shell. 
+
+After my decision to hop on the train and to start blogging about my work, I had to decide which blogging engine to use. I found `blogdown` early last year and I loved it, mainly because I could do everything from inside Rstudio. However, it wasn't until August 2017 before I was able to set it up, (mainly) due to procastination and also the fragmented documentation of the `blogdown` package which was still in active development. However, I got it working with the help of [Alison Hill's fantastic guide](https://alison.rbind.io/post/up-and-running-with-blogdown/) to setting up a blogdown site. The guide was so good (and still is) that I got the whole thing working in about two days, including deployment on Netlify and getting my own custom rbind domain name from the fantastic Rbind support group. 
+ 
+Surprisingly (or not), I procastinated again and forgot about writing altogether till late last year when I started making my resolutions for the new year. I promised myself to write at least a post, once in a week beginning from January. As most new year resolutions go, I flopped throughout January and I am just writing this first post now. It just shows how procastination, which I suffer from severly, can be damaging to seeing through one's goals, ideas and dreams. I'm starting out late, but I'm glad I'm starting altogether. 
+
+Having started, I hope to keep up the momentum and you can expect to see posts from my adventures in R, statistics, data science, data visualisation and machine learning. My advice to aspiring data scientists like me is to hop on the train and start blogging too. It's never been much easier to blog and contribute to the data science community, especially using R with the blogdown package, given the plethora of fantastic support and guides available to get it setup and working. The blogdown documentation is also complete now which makes life so much easier thanks to the authors. 
+
+Finally, I want to thank the fantastic R community. Your work, packages, blog posts, tweets and tips have been a great source of motivation to me. I'll round up this post with another of Yihui's quote on his blog (yes I like him that much) which emphasizes the advantage of blogging and writing over just tweeting:
+
+> Write and remember. Tweet and forget.
+
+So let's get the writing party started!
+
+
+
 

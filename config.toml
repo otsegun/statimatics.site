@@ -1,7 +1,7 @@
-baseurl = "http://www.statimatics.com"
+baseurl = "http://statimatics.rbind.io/"
 relativeurls = true
 languageCode = "en-us"
-title = "Statimatics-Adventures in Data Science"
+title = "Adventures in Data Science"
 theme = "hugo-lithium-theme"
 googleAnalytics = "UA-103837477-1"
 disqusShortname = "statimatics"
@@ -21,7 +21,7 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
     url = "https://facebook.com/statimatics"
 [[menu.main]]
     name = "Twitter"
-    url = "https://twitter.com/statimatics"
+    url = "https://twitter.com/mts4955"
 
 [params]
     description = "A journal of my adventures in data science"
