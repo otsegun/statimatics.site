@@ -31,7 +31,10 @@ One of the ideas beind rbind is to have a directory of stats and data analysis w
 ### Using Your Toplevel Domain Name
 One thing I also wanted in addition to rbind subdomain name is that my toplevel domain, statimatics.com (which I've bought from domain name registrar) should also  point to my website.  To do this, I had to create a CNAME record in the DNS records of my domain name (on the website of my registrar) that points to my netlify site as shown below:
 
-![Set DNS records](../resources/domain2.jpg)
+```{r, out.width = "400px"}
+knitr::include_graphics("../resources/domain2.jpg")
+```
+
 
 As seen above, I also created an A record that points satimatics.com (without the www. prefix) to my netlify site. This is to ensure my website can be assessed with both statimatics.com and www.statimatics.com. 
 

@@ -14,7 +14,7 @@ tags:
 
 
 
-<p>While setting up my blog to use the *.rbind.io domain name, I had to open a new issue over at <a href="https://github.com/rbind/support/issues">rbind support</a> Github page to requent for my favourite *.rbind.io domain name. Thankfully, the support team over at rbind were fast in getting it set up and all I had to do was set the *.rbind.io domain name in my Netlfy account. However, I also wanted my own top level domain name statimatics.com to point to this site while enforcing all my visitors to HTTPS. I thought I should write about my experience in setting up the domain name of my site.</p>
+<p>While setting up my blog to use the *.rbind.io domain name, I had to open a new issue over at <a href="https://github.com/rbind/support/issues">rbind support</a> Github page to request for my preferred *.rbind.io domain name. Thankfully, the support team over at rbind were fast in getting it set up and all I had to do was set the *.rbind.io domain name in my Netlfy account. However, I also wanted my own top level domain name statimatics.com to point to this site while enforcing all my visitors to HTTPS. I thought I should write about my experience in setting up the domain name of my site.</p>
 <div id="default-domain-name-from-netlify" class="section level3">
 <h3>Default Domain Name from Netlify</h3>
 <p>Netlify for is the best option for deploying a blogdown site. After deploying site from Git(hub), you’ll be randomly assigned a *.netlify.com domain name which you easily change. In my case, I changed mine to statimatics.netlify.com. You can easily do this in the domain settings of site in Netlify. Click on the tooltip to the side of the default *.netlify.com domain and select Edit site name to get the following dialogue box where you can set your preferred *.netlify.com domain name.</p>
@@ -34,10 +34,8 @@ tags:
 <div id="using-your-toplevel-domain-name" class="section level3">
 <h3>Using Your Toplevel Domain Name</h3>
 <p>One thing I also wanted in addition to rbind subdomain name is that my toplevel domain, statimatics.com (which I’ve bought from domain name registrar) should also point to my website. To do this, I had to create a CNAME record in the DNS records of my domain name (on the website of my registrar) that points to my netlify site as shown below:</p>
-<div class="figure">
-<img src="../resources/domain2.jpg" alt="Set DNS records" />
-<p class="caption">Set DNS records</p>
-</div>
+<pre class="r"><code>knitr::include_graphics(&quot;../resources/domain2.jpg&quot;)</code></pre>
+<p><img src="../resources/domain2.jpg" width="400px" /></p>
 <p>As seen above, I also created an A record that points satimatics.com (without the www. prefix) to my netlify site. This is to ensure my website can be assessed with both statimatics.com and www.statimatics.com.</p>
 <p>After creating these DNS records, I then added statimatics.com and www.statimatics.com as domain aliases in the domain settings of my netlify site as seen above in figure.</p>
 </div>
