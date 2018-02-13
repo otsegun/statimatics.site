@@ -18,23 +18,16 @@ tags:
 <div id="default-domain-name-from-netlify" class="section level3">
 <h3>Default Domain Name from Netlify</h3>
 <p>Netlify for me is the best option for deploying a blogdown site. After deploying site from Git(hub), you’ll be randomly assigned a *.netlify.com domain name which you easily change. In my case, I changed mine to statimatics.netlify.com. You can easily do this in the domain settings of your site in Netlify. Click on the tooltip to the side of the default *.netlify.com domain and select Edit site name to get the following dialogue box where you can set your preferred *.netlify.com domain name.</p>
-<div class="figure">
-<img src="../resources/domain1.jpg" alt="Preferred .netlify domain name" />
-<p class="caption">Preferred .netlify domain name</p>
-</div>
+<p><img src="../resources/domain1.jpg" width="210" /></p>
 </div>
 <div id="using-your-rbind-subdomain-name" class="section level3">
 <h3>Using Your Rbind (Sub)Domain Name</h3>
-<p>One of the ideas beind rbind is to have a directory of stats and data analysis websites. If you would like to use a free *.rbind.io subdomain, head over to the rbind support Github page and open a new issue and the team will get it set up for you in no time. Once that’s done, you have to point your new rbind subdomain to your site by adding it as a new custom domain in your netlify domain settings. You should also be able to set it as the primary domain if you wish.</p>
-<div class="figure">
-<img src="../resources/domain.jpg" alt="Add rbind domain name" />
-<p class="caption">Add rbind domain name</p>
-</div>
+<p>One of the ideas beind rbind is to have a directory of stats and data analysis websites. If you would like to use a free *.rbind.io subdomain, head over to the rbind support Github page and open a new issue and the team will get it set up for you in no time. Once that’s done, you have to point your new rbind subdomain to your site by adding it as a new custom domain in your netlify domain settings. You should also be able to set it as the primary domain if you wish. <img src="../resources/domain.jpg" width="294" /></p>
 </div>
 <div id="using-your-toplevel-domain-name" class="section level3">
 <h3>Using Your Toplevel Domain Name</h3>
 <p>Furthermore, I wanted in addition to the rbind subdomain name, that my toplevel domain, statimatics.com (which I’ve bought from domain name registrar) also point to my website. To do this, I had to create a CNAME record in the DNS records of my domain name (on the website of my registrar) that points to my Netlify site as shown below:</p>
-<p><img src="../resources/domain2.jpg" width="296" /></p>
+<p><img src="../resources/domain2.jpg" width="434" /></p>
 <p>As seen above, I also created an A record that points satimatics.com (without the www. prefix) to my Netlify site. This is to ensure my website can be assessed with both statimatics.com and www.statimatics.com.</p>
 <p>After creating these DNS records, I then added statimatics.com and www.statimatics.com as domain aliases in the domain settings of my netlify site as seen above in the second figure.</p>
 </div>
@@ -42,8 +35,8 @@ tags:
 <h3>Activating HTTPS</h3>
 <p>After configuring and adding all domain aliases, it is advicable to enable HTTPS on your Netlify site. Just enable the automatic TLS certificates for it in domain settings of your site (Domain management -&gt; HTTPS). However, I do not recommend forcing HTTPS using netlify’s Force HTTPS feature as this ensures that your site can’t be assessed over insecure HTTP. What I recommend is to redirect all http links to a primary https link using 301 redirects</p>
 </div>
-<div id="polishing-up-with-301-redirects" class="section level3">
-<h3>Polishing up with 301 Redirects</h3>
+<div id="polish-up-with-301-redirects" class="section level3">
+<h3>Polish up with 301 Redirects</h3>
 <p>One of the implications of having many names pointed to a site is that it tends to confuse the user as to which of them is the actual or primary domain name. I want the primary domain of my site to be statimatics.rbind.io even though other names point to the same site. So what I want is to set up 301 redirects to redirect all other names to my preferred primary domain name statimatics.rbind.io. This ensures that statimatics.rbind.io always shows up in the address bar of users regardless of which link they used to access my site.</p>
 <p>Also, since I want my site to be accessed using HTTPS, I redirected all HTTP links to HTTPS. You can set up redirects by creating a file named <code>_redirects</code> in the static folder of your blogdown site and populating it with the redirect rules. Below, I redirect all possible name/link of my site to my preferred which is <a href="https://statimatics.rbind.io" class="uri">https://statimatics.rbind.io</a>.</p>
 <pre><code>http://statimatics.rbind.io/*    https://statimatics.rbind.io/:splat  301!
