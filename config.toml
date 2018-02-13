@@ -25,7 +25,7 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 
 [params]
     description = "A journal of my adventures in data science"
-    footer = "&copy; [Oluwasegun Ojo](/) 2016 - 2018 | [Github](https://github.com/statimatics) | [Twitter](https://twitter.com/mts4955)"
+    
 
     # options for highlight.js (version, additional languages, and theme)
     highlightjsVersion = "9.11.0"
