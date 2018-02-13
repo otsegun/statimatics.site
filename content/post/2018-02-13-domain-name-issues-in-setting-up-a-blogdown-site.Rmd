@@ -16,7 +16,7 @@ tags:
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-While setting up my blog to use the \*.rbind.io domain name, I had to open a new issue over at [rbind support](https://github.com/rbind/support/issues) Github page to requent for my favourite \*.rbind.io domain name. Thankfully, the support team over at rbind were fast in getting it set up and all I had to do was set the \*.rbind.io domain name in my Netlfy account. However, I also wanted my own top level domain name statimatics.com to point to this site while enforcing all my visitors to HTTPS. I thought I should write about my experience in setting up the domain name of my site.
+While setting up my blog to use the \*.rbind.io domain name, I had to open a new issue over at [rbind support](https://github.com/rbind/support/issues) Github page to request for my preferred \*.rbind.io domain name. Thankfully, the support team over at rbind were fast in getting it set up and all I had to do was set the \*.rbind.io domain name in my Netlfy account. However, I also wanted my own top level domain name statimatics.com to point to this site while enforcing all my visitors to HTTPS. I thought I should write about my experience in setting up the domain name of my site.
 
 ### Default Domain Name from Netlify
 Netlify for is the best option for deploying a blogdown site. After deploying site from Git(hub), you'll be randomly assigned a \*.netlify.com domain name which you easily change. In my case, I changed mine to statimatics.netlify.com. You can easily do this in the domain settings of site in Netlify. Click on the tooltip to the side of the default \*.netlify.com domain and select Edit site name to get the following dialogue box where you can set your preferred \*.netlify.com domain name.
