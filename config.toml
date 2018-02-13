@@ -1,4 +1,4 @@
-baseurl = "http://statimatics.rbind.io/"
+baseurl = "https://statimatics.rbind.io/"
 relativeurls = true
 languageCode = "en-us"
 title = "Adventures in Data Science"
