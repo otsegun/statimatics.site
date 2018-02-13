@@ -21,12 +21,16 @@ While setting up my blog to use the \*.rbind.io domain name, I had to open a new
 ### Default Domain Name from Netlify
 Netlify for me is the best option for deploying a blogdown site. After deploying site from Git(hub), you'll be randomly assigned a \*.netlify.com domain name which you easily change. In my case, I changed mine to statimatics.netlify.com. You can easily do this in the domain settings of your site in Netlify. Click on the tooltip to the side of the default \*.netlify.com domain and select Edit site name to get the following dialogue box where you can set your preferred \*.netlify.com domain name.
 
-![Preferred .netlify domain name](../resources/domain1.jpg)
+```{r, echo=FALSE}
+knitr::include_graphics("../resources/domain1.jpg")
+```
+
 
 ### Using Your Rbind (Sub)Domain Name
 One of the ideas beind rbind is to have a directory of stats and data analysis websites. If you would like to use a free \*.rbind.io subdomain, head over to the rbind support Github page and open a new issue and the team will get it set up for you in no time. Once that's done, you have to point your new rbind subdomain to your site by adding it as a new custom domain in your netlify domain settings. You should also be able to set it as the primary domain if you wish.
-
-![Add rbind domain name](../resources/domain.jpg)
+```{r, echo=FALSE}
+knitr::include_graphics("../resources/domain.jpg")
+```
 
 ### Using Your Toplevel Domain Name
 Furthermore, I wanted in addition to the rbind subdomain name, that my toplevel domain, statimatics.com (which I've bought from domain name registrar) also  point to my website.  To do this, I had to create a CNAME record in the DNS records of my domain name (on the website of my registrar) that points to my Netlify site as shown below:
