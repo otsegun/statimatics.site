@@ -28,6 +28,7 @@ knitr::include_graphics("../resources/domain1.jpg")
 
 ### Using Your Rbind (Sub)Domain Name
 One of the ideas behind rbind is to have a directory of stats and data analysis websites. If you would like to use a free \*.rbind.io subdomain, head over to the rbind support Github page and open a new issue and the team will get it set up for you in no time. Once that's done, you have to point your new rbind subdomain to your site by adding it as a new custom domain in your netlify domain settings. You should also be able to set it as the primary domain if you wish.
+
 ```{r, echo=FALSE}
 knitr::include_graphics("../resources/domain.jpg")
 ```
@@ -40,7 +41,7 @@ knitr::include_graphics("../resources/domain2.jpg")
 ```
 
 
-As seen above, I also created an A record that points satimatics.com (without the www. prefix) to my Netlify site. This is to ensure my website can be assessed with both statimatics.com and www.statimatics.com. 
+As seen above, I also created an A record that points statimatics.com (without the www. prefix) to my Netlify site. This is to ensure my website can be assessed with both statimatics.com and www.statimatics.com. 
 
 After creating these DNS records, I then added statimatics.com and www.statimatics.com as domain aliases in the domain settings of my netlify site as seen above in the second figure.
 
