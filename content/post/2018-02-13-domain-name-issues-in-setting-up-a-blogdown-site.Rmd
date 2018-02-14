@@ -27,7 +27,7 @@ knitr::include_graphics("../resources/domain1.jpg")
 
 
 ### Using Your Rbind (Sub)Domain Name
-One of the ideas beind rbind is to have a directory of stats and data analysis websites. If you would like to use a free \*.rbind.io subdomain, head over to the rbind support Github page and open a new issue and the team will get it set up for you in no time. Once that's done, you have to point your new rbind subdomain to your site by adding it as a new custom domain in your netlify domain settings. You should also be able to set it as the primary domain if you wish.
+One of the ideas behind rbind is to have a directory of stats and data analysis websites. If you would like to use a free \*.rbind.io subdomain, head over to the rbind support Github page and open a new issue and the team will get it set up for you in no time. Once that's done, you have to point your new rbind subdomain to your site by adding it as a new custom domain in your netlify domain settings. You should also be able to set it as the primary domain if you wish.
 ```{r, echo=FALSE}
 knitr::include_graphics("../resources/domain.jpg")
 ```
@@ -45,7 +45,7 @@ As seen above, I also created an A record that points satimatics.com (without th
 After creating these DNS records, I then added statimatics.com and www.statimatics.com as domain aliases in the domain settings of my netlify site as seen above in the second figure.
 
 ### Activating HTTPS
-After configuring and adding all domain aliases, it is advicable to enable HTTPS on your Netlify site. Just enable the automatic TLS certificates for it in domain settings of your site (Domain management -> HTTPS).
+After configuring and adding all domain aliases, it is advicable to enable HTTPS on your Netlify site. Just enable the automatic TLS certificates for it in the domain settings of your site (Domain management -> HTTPS).
 However, I do not recommend forcing HTTPS using netlify's Force HTTPS feature as this ensures that your site can't be assessed over insecure HTTP. What I recommend is to redirect all http links to a primary https link using 301 redirects
 
 ### Polish up with 301 Redirects
