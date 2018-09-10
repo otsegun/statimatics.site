@@ -11,4 +11,4 @@ I find myself using Python sometimes but I plan to build more competence. I hope
 
 Formally, I was a freelance data analyst on [**Upwork**](https://www.upwork.com/freelancers/~01c88a1d3bf29573d2) where I helped clients tackle difficult data wrangling projects and to make sense of their data. Nowadays, I am working on completeing my PhD in the Mathematical Engineering program of the Carlos 3 University of Madrid (UC3M). 
 
-You can follow me on Twitter [**@mts4955**](https://twitter.com/mts4955)  or like the [**Facebook**](https://facebook.com/statimatics) page of this blog to stay tuned to updates from this blog and other interesting stuff in data science. I am happy to help in any way I can so don’t hesitate to [get in touch](mailto:statimatician@gmail.com)!
+You can follow me on Twitter [**@mts4955**](https://twitter.com/mts4955). I am happy to help in any way I can so don’t hesitate to [get in touch](mailto:statimatician@gmail.com)!
