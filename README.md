@@ -1,2 +1,4 @@
 # statimatics
-Source files for statimatics.com
+Source files for statimatics.com.
+
+#This is a line from Rstudio
