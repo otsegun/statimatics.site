@@ -1,7 +1,7 @@
 ---
-title: 'Neural Networks and Deep Learning with an R (twist): Introduction.'
+title: 'Neural Networks and Deep Learning with (an) R (twist): Introduction.'
 author: Oluwasegun Ojo
-date: '2018-09-14'
+date: '2018-09-13'
 draft: FALSE
 slug: deep-learning-with-r-part-1-an-introduction
 categories:
