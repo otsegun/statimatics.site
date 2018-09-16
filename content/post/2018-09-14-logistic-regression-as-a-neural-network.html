@@ -3,6 +3,8 @@ title: Logistic Regression as a Neural Network
 author: Oluwasegun Ojo
 date: '2018-09-14'
 slug: logistic-regression-as-a-neural-network
+header-includes:
+  - \usepackage{amsfonts}
 categories:
   - Data Science
   - R
@@ -13,17 +15,43 @@ tags:
 
 
 
-<div id="introduction" class="section level3">
-<h3>Introduction</h3>
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
 <p>This post continues my blog series on Neural Networks and Deep Learning with (an) R (twist), which is motivated by my current enrollment in Andrew Ng’s Deep Learning Specialisation on Coursera. One of the very first things I picked in this course is that the familiar logistic regression classifiers can be seen as a neural network. In fact it turns out that the logistic regression classifier is a good example to illustrate and motivate the basics of neural networks. I start by motivating the binary classification problem.</p>
 </div>
-<div id="the-binary-classification-problem" class="section level3">
-<h3>The Binary Classification Problem</h3>
+<div id="the-binary-classification-problem" class="section level2">
+<h2>The Binary Classification Problem</h2>
 <p>The binary classification problem is one in which given a set of input <span class="math inline">\(X\)</span> (called features), we want to output a binary prediction <span class="math inline">\(y\)</span>. A fascinating example of this type of problem I saw recently is given a set of (some Nike and Adidas) shoe pictures, can we learn a binary classifier to tell whether a shoe was made by Nike or Adidas!</p>
 <p><span class="math display">\[X \rightarrow y\]</span></p>
 <p><span class="math display">\[(shoe\ image\ pixel\ values) \rightarrow shoe\ is\ Nike\ or\ Adidas\]</span></p>
-<p>In this setting, the possible outputs (Nike/Adidas) of <span class="math inline">\(y\)</span> are denoted with <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> and the logistic regression classifier is typically used on this type of problem because it is capable of producing an output (prediction) which is the probability that <span class="math inline">\(y = 1\)</span> given the input features <span class="math inline">\(X\)</span>: <span class="math inline">\((P(y=1|X)\)</span></p>
+<p>In this setting, the possible outputs (Nike/Adidas) of <span class="math inline">\(y\)</span> are denoted with <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> and the logistic regression classifier is typically used on this type of problem because it is capable of producing an output (prediction) which is basically the probability that <span class="math inline">\(y = 1\)</span> given the input features <span class="math inline">\(X\)</span>: <span class="math display">\[\hat{y} = (P(y=1|X) ; \ \ \ \ \ \  0 \leq \hat{y} \leq 1\]</span></p>
 </div>
-<div id="the-binary-classification-problem-1" class="section level3">
-<h3>The Binary Classification Problem</h3>
+<div id="why-the-logistic-regression-classifier" class="section level2">
+<h2>Why The Logistic Regression Classifier ?</h2>
+<p>The logistic regression classifier can easily be motivated from linear regression model given by</p>
+<p><span class="math display">\[\hat{y} = w_1x_1 + w_2 x_2 + \cdots + w_{nx} x_{nx} + b = w^Tx + b\]</span> where <span class="math inline">\(n_x\)</span> is the number of features (or predictors or columns) of <span class="math inline">\(x\)</span>, <span class="math inline">\(x^T = [x_1\ x_2\ \cdots x_{nx}]\)</span>, and <span class="math inline">\(w^T = [w_1\ w_2\ \cdots w_{nx}]\)</span>. However, we want <span class="math inline">\(0 \leq \hat{y} \leq 1\)</span> but the current linear regression model does not satisfy that. Consequently, we pass <span class="math inline">\(\hat{y}\)</span> through the sigmoid function <span class="math inline">\(\sigma\)</span> given by:</p>
+<p><span class="math display">\[\sigma(z) = \frac{1}{1+e^{-z}}\]</span></p>
+<p>Note that if <span class="math inline">\(z\)</span> is very large, <span class="math inline">\(\sigma(z)\)</span> is close to 1.and if <span class="math inline">\(z\)</span> is very small, <span class="math inline">\(\sigma(z)\)</span> is close to zero. If we let <span class="math inline">\(z = w^Tx + b\)</span>, the output of the logistic regression classifier can then be written as: <span class="math display">\[\hat{y} = \sigma(z) = \sigma(w^Tx + b) = \frac{1}{1+e^{-(w^Tx + b)}}\]</span></p>
+</div>
+<div id="learning-the-parameters-of-the-logistic-regression-classifier" class="section level2">
+<h2>Learning The Parameters of The Logistic Regression Classifier</h2>
+<p>This section details the steps needed to train the logistic classifier. First we setup the problem with the appropriate notations.</p>
+<div id="setup" class="section level3">
+<h3>Setup</h3>
+<p>Given the set of <span class="math inline">\(m\)</span> training examples: <span class="math display">\[\{(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \ldots, (x^{(m)}, y^{(m)})\}\]</span> where any <span class="math inline">\(x^{(i)} \in \mathbb{R}^{nx}\)</span> and <span class="math inline">\(y^{(i)} \in \mathbb{R}\)</span> with the superscript indices refering to training examples. We want for any single training example <span class="math inline">\((x^{(i)}, y^{(i)})\)</span>, a prediction that is close to the actual value as possible, i.e we want: <span class="math display">\[\hat{y}^{(i)} \approx {y}^{(i)}\]</span> where <span class="math display">\[\hat{y}^{(i)} = \sigma({z}^{(i)}) = \sigma(w^T\cdot{x}^{(i)} + b) = \frac{1}{1+e^{-(w^T\cdot{x}^{(i)} + b)}}\]</span></p>
+<p>Next we proceed by first defining logistic regression loss function.</p>
+</div>
+<div id="the-logistic-regression-loss-or-error-function" class="section level3">
+<h3>The Logistic Regression Loss (or Error) Function</h3>
+<p>To assess how good the current values of parameters <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span> are, we need to define a metric to compare how close a single prediction <span class="math inline">\(\hat{y}^{(i)}\)</span> (on the training example <span class="math inline">\(x^{(i)}\)</span> given the <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span>) is to the actual value <span class="math inline">\(y^{(i)}\)</span>. This metric is called the loss (or error) on a training example and it basically measures the difference between <span class="math inline">\(\hat{y}^{(i)}\)</span> and <span class="math inline">\(y^{(i)}\)</span>. For logistic regression, the preferred loss function is <span class="math display">\[L(\hat{y}^{(i)}, y^{(i)}) = -\left[y^{(i)} \cdot \log(\hat{y}^{(i)}) + (1-y^{(i)})\cdot\log(1-\hat{y}^{(i)})\right]\]</span> Note that if <span class="math inline">\(y^{(i)} =1\)</span>, then <span class="math inline">\(L(\hat{y}^{(i)}, y^{(i)}) = -\log(\hat{y}^{(i)})\)</span> and since we want to minimise the loss <span class="math inline">\(L(\hat{y}^{(i)}, y^{(i)})\)</span> (we want <span class="math inline">\(\hat{y}^{(i)}\)</span> to be close to <span class="math inline">\(y^{(i)}\)</span> as possible), <span class="math inline">\(\log(\hat{y}^{(i)})\)</span> must be large and that implies that <span class="math inline">\(\hat{y}^{(i)}\)</span> must be large which consequently means that <span class="math inline">\(\hat{y}^{(i)}\)</span> will be close to <span class="math inline">\(1\)</span> (since the sigmoid function ensures that <span class="math inline">\(\hat{y}^{(i)} \leq 1\)</span>).</p>
+<p>Likewise, if <span class="math inline">\(y^{(i)} = 0\)</span>, then <span class="math inline">\(L(\hat{y}^{(i)}, y^{(i)}) = -\log(1 - \hat{y}^{(i)})\)</span> and to minimise <span class="math inline">\(L(\hat{y}^{(i)}, y^{(i)})\)</span>, <span class="math inline">\(\log(1- \hat{y}^{(i)})\)</span> must be large and that implies that <span class="math inline">\(1 - \hat{y}^{(i)}\)</span> must be large which in turn means that <span class="math inline">\(\hat{y}^{(i)}\)</span> must be small and consequent upon the constraint of the sigmoid function, <span class="math inline">\(\hat{y}^{(i)} \approx 0\)</span> (because the sigmoid function ensures that <span class="math inline">\(0 \leq \hat{y}^{(i)}\)</span>).</p>
+<blockquote>
+<p>Therefore, minimising <span class="math inline">\(L(\hat{y}^{(i)}, y^{(i)})\)</span> corresponds to getting <span class="math inline">\(\hat{y}^{(i)}\)</span> which is close to <span class="math inline">\(y^{(i)}\)</span> (a prediction which is close to the actual value) as much as possible.</p>
+</blockquote>
+</div>
+<div id="the-logistic-regression-cost-function" class="section level3">
+<h3>The Logistic Regression Cost Function</h3>
+<p>The loss function defined above measures the error between the prediction and the actual value (<span class="math inline">\(\hat{y}_i\)</span> and <span class="math inline">\(y^{(i)}\)</span> respectively) on a single training example <span class="math inline">\(i\)</span>. To assess the parameters <span class="math inline">\(w\)</span> on the entire training data, we need to define the cost function which averages the loss function over all the entire training examples. Consequently, the cost function given <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span> is defined as <span class="math display">\[J(w,b) = -\frac{1}{m}\sum_{i = 1}^mL(\hat{y}^{(i)}, y^{(i)}) =  -\frac{1}{m}\sum_{i = 1}^m \left[y^{(i)} \cdot \log(\hat{y}^{(i)}) + (1-y^{(i)})\cdot\log(1-\hat{y}^{(i)})\right]\]</span> So therefore, to get the values of <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span> which guarantees that <span class="math inline">\(\hat{y}^{(i)}\)</span> is as close to <span class="math inline">\(y^{(i)}\)</span> as possible for all <span class="math inline">\(i = 1, \ldots, m\)</span>, we need to minimize <span class="math inline">\(J(w,b)\)</span>. That is we want to find <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span> which minimizes <span class="math inline">\(J\)</span>!</p>
+</div>
 </div>

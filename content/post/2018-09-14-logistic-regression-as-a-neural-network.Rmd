@@ -3,6 +3,8 @@ title: Logistic Regression as a Neural Network
 author: Oluwasegun Ojo
 date: '2018-09-14'
 slug: logistic-regression-as-a-neural-network
+header-includes:
+  - \usepackage{amsfonts}
 categories:
   - Data Science
   - R
@@ -11,11 +13,11 @@ tags:
   - Deep Learning
 ---
 
-### Introduction
+## Introduction
 
 This post continues my blog series on Neural Networks and Deep Learning with (an) R (twist), which is motivated by my current enrollment in Andrew Ng's Deep Learning Specialisation on Coursera. One of the very first things I picked in this course is that the familiar logistic regression classifiers can be seen as a neural network. In fact it turns out that the logistic regression classifier is a good example to illustrate and motivate the basics of neural networks. I start by motivating the binary classification problem.
 
-### The Binary Classification Problem
+## The Binary Classification Problem
 The binary classification problem is one in which given a set of input $X$ (called features), we want to output a binary prediction $y$. A fascinating example of this type of problem I saw recently is given a set of (some Nike and Adidas) shoe pictures, can we learn a binary classifier to tell whether a shoe was made by Nike or Adidas!
 
 $$X \rightarrow y$$ 
@@ -23,6 +25,47 @@ $$X \rightarrow y$$
 $$(shoe\ image\ pixel\ values) \rightarrow shoe\ is\ Nike\ or\ Adidas$$
 
 
-In this setting, the possible outputs (Nike/Adidas) of $y$ are denoted with $0$ and $1$ and the logistic regression classifier is typically used on this type of problem because it is capable of producing an output (prediction)  which is the probability that $y = 1$ given the input features $X$: $(P(y=1|X)$
+In this setting, the possible outputs (Nike/Adidas) of $y$ are denoted with $0$ and $1$ and the logistic regression classifier is typically used on this type of problem because it is capable of producing an output (prediction)  which is basically the probability that $y = 1$ given the input features $X$: $$\hat{y} = (P(y=1|X) ; \ \ \ \ \ \  0 \leq \hat{y} \leq 1$$
 
-### The Binary Classification Problem
+## Why The Logistic Regression Classifier ?
+
+The logistic regression classifier can easily be motivated from linear regression model given by
+
+$$\hat{y} = w_1x_1 + w_2 x_2 + \cdots + w_{nx} x_{nx} + b = w^Tx + b$$
+where $n_x$ is the number of features (or predictors or columns) of $x$, $x^T = [x_1\ x_2\ \cdots x_{nx}]$, and $w^T = [w_1\ w_2\ \cdots w_{nx}]$. However, we want $0 \leq \hat{y} \leq 1$ but the current linear regression model does not satisfy that. Consequently, we pass $\hat{y}$ through the sigmoid function $\sigma$ given by:
+
+$$\sigma(z) = \frac{1}{1+e^{-z}}$$
+
+Note that if $z$ is very large, $\sigma(z)$ is close to 1.and if $z$ is very small, $\sigma(z)$ is close to zero. If we let $z = w^Tx + b$, the output of the logistic regression classifier can then be written as:
+$$\hat{y} = \sigma(z) = \sigma(w^Tx + b) = \frac{1}{1+e^{-(w^Tx + b)}}$$
+
+## Learning The Parameters of The Logistic Regression Classifier
+
+This section details the steps needed to train the logistic classifier. First we setup the problem with the appropriate notations. 
+
+### Setup
+
+Given the set of $m$ training examples: 
+$$\{(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \ldots, (x^{(m)}, y^{(m)})\}$$
+where any $x^{(i)} \in \mathbb{R}^{nx}$ and $y^{(i)} \in \mathbb{R}$ with the superscript indices refering to training examples. We want for any single training example $(x^{(i)}, y^{(i)})$, a prediction that is close to the actual value as possible, i.e we want:
+$$\hat{y}^{(i)} \approx {y}^{(i)}$$
+where 
+$$\hat{y}^{(i)} = \sigma({z}^{(i)}) = \sigma(w^T\cdot{x}^{(i)} + b) = \frac{1}{1+e^{-(w^T\cdot{x}^{(i)} + b)}}$$
+
+Next we proceed by first defining logistic regression loss function.
+
+### The Logistic Regression Loss (or Error) Function
+
+To assess how good the current values of parameters $w$ and $b$ are, we need to define a metric to compare how close a single prediction $\hat{y}^{(i)}$ (on the training example $x^{(i)}$  given the $w$ and $b$) is to the actual value $y^{(i)}$. This metric is called the loss (or error) on a training example and it basically measures the difference between $\hat{y}^{(i)}$ and $y^{(i)}$. For logistic regression, the preferred loss function is 
+$$L(\hat{y}^{(i)}, y^{(i)}) = -\left[y^{(i)} \cdot \log(\hat{y}^{(i)}) + (1-y^{(i)})\cdot\log(1-\hat{y}^{(i)})\right]$$
+Note that if $y^{(i)} =1$, then $L(\hat{y}^{(i)}, y^{(i)}) = -\log(\hat{y}^{(i)})$ and since we want to minimise the loss $L(\hat{y}^{(i)}, y^{(i)})$ (we want $\hat{y}^{(i)}$ to be close to $y^{(i)}$ as possible), $\log(\hat{y}^{(i)})$  must be large and that implies that $\hat{y}^{(i)}$ must be large which consequently means that $\hat{y}^{(i)}$ will be close to $1$ (since the sigmoid function ensures that $\hat{y}^{(i)} \leq 1$). 
+
+Likewise, if  $y^{(i)} = 0$, then $L(\hat{y}^{(i)}, y^{(i)}) = -\log(1 - \hat{y}^{(i)})$ and to minimise $L(\hat{y}^{(i)}, y^{(i)})$,  $\log(1- \hat{y}^{(i)})$ must be large and that implies that $1 - \hat{y}^{(i)}$ must be large which in turn means that $\hat{y}^{(i)}$ must be small and consequent upon the constraint of the sigmoid function, $\hat{y}^{(i)} \approx 0$ (because the sigmoid function ensures that $0 \leq \hat{y}^{(i)}$). 
+
+> Therefore, minimising $L(\hat{y}^{(i)}, y^{(i)})$ corresponds to getting $\hat{y}^{(i)}$ which is close to $y^{(i)}$ (a prediction which is close to the actual value) as much as possible.
+
+### The Logistic Regression Cost Function
+
+The loss function defined above measures the error between the prediction and the actual value ($\hat{y}_i$ and $y^{(i)}$ respectively) on a single training example $i$. To assess the parameters $w$ on the entire training data, we need to define the cost function which averages the loss function over all the entire training examples. Consequently, the cost function given $w$ and $b$ is defined as 
+$$J(w,b) = -\frac{1}{m}\sum_{i = 1}^mL(\hat{y}^{(i)}, y^{(i)}) =  -\frac{1}{m}\sum_{i = 1}^m \left[y^{(i)} \cdot \log(\hat{y}^{(i)}) + (1-y^{(i)})\cdot\log(1-\hat{y}^{(i)})\right]$$
+So therefore, to get the values of $w$ and $b$ which guarantees that $\hat{y}^{(i)}$ is as close to $y^{(i)}$ as possible for all $i = 1, \ldots, m$, we need to minimize $J(w,b)$. That is we want to find $w$ and $b$ which minimizes $J$!
