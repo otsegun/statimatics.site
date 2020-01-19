@@ -69,3 +69,5 @@ Likewise, if  $y^{(i)} = 0$, then $L(\hat{y}^{(i)}, y^{(i)}) = -\log(1 - \hat{y}
 The loss function defined above measures the error between the prediction and the actual value ($\hat{y}_i$ and $y^{(i)}$ respectively) on a single training example $i$. To assess the parameters $w$ on the entire training data, we need to define the cost function which averages the loss function over all the entire training examples. Consequently, the cost function given $w$ and $b$ is defined as 
 $$J(w,b) = -\frac{1}{m}\sum_{i = 1}^mL(\hat{y}^{(i)}, y^{(i)}) =  -\frac{1}{m}\sum_{i = 1}^m \left[y^{(i)} \cdot \log(\hat{y}^{(i)}) + (1-y^{(i)})\cdot\log(1-\hat{y}^{(i)})\right]$$
 So therefore, to get the values of $w$ and $b$ which guarantees that $\hat{y}^{(i)}$ is as close to $y^{(i)}$ as possible for all $i = 1, \ldots, m$, we need to minimize $J(w,b)$. That is we want to find $w$ and $b$ which minimizes $J$!
+
+### The Gradient Descent Algorithm
