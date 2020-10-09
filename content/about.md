@@ -26,7 +26,7 @@ I am currently building an R package for some functional data analysis methods.
 
 
 # Contact
-Get in touch through [get in touch](mailto:statimatician@gmail.com).
+Get in touch through [my email](mailto:statimatician@gmail.com).
 
 # About this site 
 This site is created with blogdown using Hugo and the theme is [hugo-lithium](https://github.com/yihui/hugo-lithium). The Rmarkdown source files are hosted on [Github](https://github.com/otsegun/statimatics.site). 
