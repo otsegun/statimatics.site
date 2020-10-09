@@ -1,7 +1,7 @@
 baseurl = "https://statimatics.rbind.io/"
 relativeurls = true
 languageCode = "en-us"
-title = "Stats, maths and a bit fun"
+title = "Stats, maths, computing and a bit fun"
 theme = "hugo-lithium-theme"
 googleAnalytics = "UA-103837477-1"
 disqusShortname = "statimatics"
@@ -9,6 +9,9 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 
 [permalinks]
     post = "/:year/:month/:day/:slug/"
+[social]
+    github = "https://github.com/otsegun"
+    twitter = "https://twitter.com/statimatician"
 
 [[menu.main]]
     name = "About"
@@ -16,6 +19,7 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 [[menu.main]]
     name = "Vitae"
     url = "/vitae/"  
+
 [params]
     description = "Stats, maths and a bit fun"
     
