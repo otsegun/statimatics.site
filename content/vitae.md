@@ -8,4 +8,4 @@ tags: [vitae]
 ---
 
 
-You can see my CV [**here**](https://drive.google.com/file/d/1v5ziDsuLVx9EM9Iq7Mc2gqeHJw0pfIsW/view?usp=sharing). 
+Coming soon...

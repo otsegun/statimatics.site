@@ -54,6 +54,16 @@ code {
   transition: transform 150ms ease-out;
 }
 
+.nav-text {
+  float: left;
+  margin-top: 5px;
+  margin-left: 30px;
+  transition: transform 150ms ease-out;
+  text-decoration: none;
+  color: #111;
+  font-size: 18px;
+}
+
 .nav-logo:hover {
   transform: scale(1.1);
 }
